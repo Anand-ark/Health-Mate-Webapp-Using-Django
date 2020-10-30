@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Diabetes{% endblock title %}
+
+{% block content %}
+<!--{% load static %}
+<div class="container-fluid px-0">
+    <h1>Malaria</h1>
+</div>-->
+<h1 style="text-align: center; color: rgb(85, 85, 85);margin-top: 3%;margin-bottom: 3%"><b>Diabetes Prediction</b></h1>
+<div style=" position:relative;top:50%; left:41%;">
+<form action="predict">
+            <input type="text" name="N1" placeholder="N1" required="required"><br><br>
+            <input type="text" name="N2" placeholder="N2" required="required" /><br><br>
+            <input type="text" name="N3" placeholder="N3" required="required" /><br><br>
+            <div style=" position:relative;top:50%; left:4%;">
+                <button type="submit" class="btn btn-primary" style="margin-top: 0.5%;">Predict</button>
+            </div>
+            </form>
+    <div style=" position:relative;top:50%; left:-2%;">
+            <br>
+
+            <h1 style="text-align:justify; color: green;"><b> Result is : {{ pred }}</b></h1>
+    </div>
+</div>
+
+    {% endblock content %}
