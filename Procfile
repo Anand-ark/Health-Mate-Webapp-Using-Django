@@ -1,1 +1,1 @@
-web: gunicorn skinml.wsgi
+web: gunicorn skinml.wsgi --log-file -
