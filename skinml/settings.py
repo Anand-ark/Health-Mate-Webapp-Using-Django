@@ -30,7 +30,8 @@ SECRET_KEY = '-1rv8$fzu0%$b5!ohr2a97akw$j!71-qkhcz^@wcb@r_t2jb7b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['*']----
+ALLOWED_HOSTS = ['127.0.0.1','alphanumericre.herokuapp.com']
 
 
 # Application definition
@@ -82,10 +83,10 @@ WSGI_APPLICATION = 'skinml.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ciba',
-        # 'ENGINE': 'django.db.backends.sqlite3',
-         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #AME': 'ciba',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -131,5 +132,5 @@ MEDIA_URL='/media/'
 
 STATIC_ROOT=os.path.join(BASE_DIR,'static')
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-django_heroku.settings(locals())
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#django_heroku.settings(locals())
