@@ -13,6 +13,8 @@ urlpatterns = [
     path('upload2',views.upload2,name='intro'),
     path('about', views.about, name='intro'),
     path('contact', views.contact, name='intro'),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
 
 ]
-#urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
