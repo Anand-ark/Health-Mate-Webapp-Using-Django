@@ -12,10 +12,12 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
-import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 #BASE_DIR = Path(__file__).resolve().parent.parent
 import os
+import dj_database_url
+import django_heroku
+
 BASE_DIR=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -28,7 +30,7 @@ SECRET_KEY = '-1rv8$fzu0%$b5!ohr2a97akw$j!71-qkhcz^@wcb@r_t2jb7b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -79,8 +82,10 @@ WSGI_APPLICATION = 'skinml.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR,'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ciba',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -123,7 +128,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL='/media/'
-STATIC_ROOT=os.path.join(BASE_DIR,'static')
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_heroku.settings(locals())
