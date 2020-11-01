@@ -5,6 +5,7 @@ from PIL import Image
 from keras.models import load_model
 from keras.preprocessing import image
 import joblib
+from sklearn.ensemble import RandomForestClassifier
 
 import tensorflow as tf
 model =load_model('./models/malaria_detection.h5')
@@ -21,18 +22,53 @@ def contact(request):
     return render(request, 'App/contact.html')
 def diabetes(request):
     return render(request, 'App/diabetes.html')
+def heart(request):
+    return render(request, 'App/heart.html')
 def malariaa(request):
     return render(request, 'App/malariaa.html')
 def pneumonia(request):
     return render(request, 'App/pneumonia.html')
 def predict(request):
-    lis=[]
-    lis.append(int(request.GET['N1']))
-    lis.append(int(request.GET['N2']))
-    lis.append(int(request.GET['N3']))
-    N = np.array(lis)
-    pred=np.sum(N)
+    lis = []
+    lis.append(int(request.GET['Pregnancies']))
+    lis.append(int(request.GET['Glucose']))
+    lis.append(int(request.GET['BloodPressure']))
+    lis.append(int(request.GET['SkinThickness']))
+    lis.append(int(request.GET['Insulin']))
+    lis.append(float(request.GET['BMI']))
+    lis.append(float(request.GET['DiabetesPedigreeFunction']))
+    lis.append(int(request.GET['Age']))
+    N = [np.array(lis)]
+
+    pred = dmodel.predict(N)
+    if(pred==1):
+        pred='Congrats ! You Are Healthy'
+    else:
+        pred='Alas ! You Are Unhealthy '
     return render(request, 'App/diabetes.html', {'pred':pred})
+def hpredict(request):
+    liss = []
+    liss.append(int(request.GET['age']))
+    liss.append(int(request.GET['sex']))
+    liss.append(int(request.GET['cp']))
+    liss.append(int(request.GET['trestbps']))
+    liss.append(int(request.GET['chol']))
+    liss.append(int(request.GET['fbs']))
+    liss.append(int(request.GET['restecg']))
+    liss.append(int(request.GET['thalach']))
+    liss.append(int(request.GET['exang']))
+    liss.append(float(request.GET['oldpeak']))
+    liss.append(int(request.GET['slope']))
+    liss.append(int(request.GET['ca']))
+    liss.append(int(request.GET['thal']))
+    h = [np.array(liss)]
+
+    predh = hmodel.predict(h)
+    if(predh==0):
+       predh='Congrats ! You Are Safe'
+    else:
+       predh='Alas ! You Are Not Safe '
+    return render(request, 'App/heart.html', {'predh':predh})
 def upload1(request):#Pneumonia
     p1 = request.FILES['image'];
     fs1=FileSystemStorage()
