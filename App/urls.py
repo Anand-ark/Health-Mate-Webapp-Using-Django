@@ -15,6 +15,8 @@ urlpatterns = [
     path('upload2',views.upload2,name='intro'),
     path('about', views.about, name='intro'),
     path('contact', views.contact, name='intro'),
+    path('hpredict', views.hpredict, name='intro'),
+    path('heart', views.heart, name='intro'),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
 
