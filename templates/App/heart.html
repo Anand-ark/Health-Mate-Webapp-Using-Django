@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Heart{% endblock title %}
+
+{% block content %}
+<!--{% load static %}
+<div class="container-fluid px-0">
+    <h1>Malaria</h1>
+</div>-->
+<style>
+    p{
+    margin-top:10px;
+    }
+        select {
+        width: 250px;
+        height:37px;
+        margin: 0px;
+    }
+</style>
+<!--<h1 style="text-align: center; color: rgb(85, 85, 85);margin-top: 3%;margin-bottom: 3%"><b>Heart Disease Prediction</b></h1>-->
+<br><h1 style="text-align:center"><p style="color:OrangeRed;">Heart Disease Prediction</p></h1>
+<form action="hpredict" align="center">
+    <p><input type="text" name="age" placeholder="Age" required="required" style="width:250px;"></p>
+    <select class="form-input align-center" name="sex">
+        <option value="" style="width:250px;">Sex</option>
+                    <option value=1>Male</option>
+                    <option value=0>Female</option>
+    </select>
+    <p></p>
+    <select class="form-input align-center" name="cp">
+        <option value="" style="width:250px;">Chest Pain Category</option>
+                    <option value=0>Typical Angina</option>
+                    <option value=1>Atypical Angina</option>
+                    <option value=2>Non-Anginal Pain</option>
+                    <option value=3>Asymptomatic</option>
+    </select>
+    <p><input type="text" name="trestbps" placeholder="Resting Blood Pressure" required="required" style="width:250px;"></p>
+    <p><input type="text" name="chol" placeholder="Serum Cholestoral" required="required" style="width:250px;"></p>
+    <select class="form-input align-center" name="fbs">
+        <option value="" style="width:250px;">Fast Blood Sugar</option>
+                    <option value=0>Greater than 120 mg/dl</option>
+                    <option value=1>Lesser than 120 mg/dl</option>
+    </select>
+    <p></p>
+
+    <select class="form-input align-center" name="restecg">
+        <option value="" style="width:250px;">Rest ECG</option>
+                    <option value=0>Normal</option>
+                    <option value=1>Having ST-T</option>
+            <option value=2>Hypertrophy</option>
+    </select>
+    <p><input type="text" name="thalach" placeholder="Max Heart Rate" required="required" style="width:250px;"></p>
+    <select class="form-input align-center" name="exang">
+        <option value="" style="width:250px;">Induced Angina</option>
+                    <option value=1>Yes</option>
+                    <option value=0>No</option>
+    </select>
+    <p><input type="text" name="oldpeak" placeholder="Oldpeak" required="required" style="width:250px;"></p>
+    <select class="form-input align-center" name="slope">
+        <option value="" style="width:250px;">Slope of Peak Exercise</option>
+                    <option value=1>Upsloping</option>
+                    <option value=2>Flat</option>
+                    <option value=3>Downsloping</option>
+    </select>
+    <p><input type="text" name="ca" placeholder="Major Vessels" required="required" style="width:250px;"></p>
+      <p></p>      <select class="form-input align-center" name="thal">
+        <option value="" style="width:250px;">Thalassemia</option>
+                    <option value=3>Normal</option>
+                    <option value=2>Fixed defect</option>
+                    <option value=3>Reversable defect</option>
+    </select>
+<p> <button type="submit" class="btn btn-danger" style="margin-top: 0.5%;">Predict</button></p>
+
+            </form>
+            <br>
+
+<h1 style="text-align:center; color: FloralWhite;"><b><p> {{ predh }}</p></b></h1>
+
+    {% endblock content %}
