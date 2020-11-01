@@ -9,7 +9,8 @@ from sklearn.ensemble import RandomForestClassifier
 
 import tensorflow as tf
 model =load_model('./models/malaria_detection.h5')
-
+dmodel=joblib.load('./models/diabetes_model.sav')
+hmodel=joblib.load('./models/heart_model.sav')
 img_height,img_width=128,128
 
 def index(request):
