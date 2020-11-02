@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Result{% endblock title %}
+{% block content %}
+
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<div class="container my-3">
+        <img src={{filepathname1}} alt="img" style="width:35%;vertical-align:middle;margin:40px 370px"" >
+         <h1 style="text-align:center; color:DeepSkyBlue;"><b>{{ pred1 }}</b></h1>
+</div>
+{% endblock content %}
