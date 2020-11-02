@@ -11,6 +11,7 @@ urlpatterns = [
     path('malariaa', views.malariaa, name='intro'),
     path('covid', views.covid, name='intro'),
     path('predict', views.predict, name='intro'),
+    path('skin', views.skin, name='intro'),
     path('upload1',views.upload1,name='intro'),
     path('upload2',views.upload2,name='intro'),
     path('about', views.about, name='intro'),
