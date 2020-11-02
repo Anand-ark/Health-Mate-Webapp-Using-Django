@@ -11,8 +11,10 @@ import tensorflow as tf
 model =load_model('./models/malaria_detection.h5')
 dmodel=joblib.load('./models/diabetes_model.sav')
 hmodel=joblib.load('./models/heart_model.sav')
-img_height,img_width=128,128
+cmodel=load_model('./models/covid_Xray_lungs_detection.h5')
 
+img_height1,img_width1=150,150 #covid
+img_height2,img_width2=128,128 # malaria
 def index(request):
     return render(request,'App/index.html',{})
 
@@ -27,8 +29,8 @@ def heart(request):
     return render(request, 'App/heart.html')
 def malariaa(request):
     return render(request, 'App/malariaa.html')
-def pneumonia(request):
-    return render(request, 'App/pneumonia.html')
+def covid(request):
+    return render(request, 'App/covid.html')
 def predict(request):
     lis = []
     lis.append(int(request.GET['Pregnancies']))
@@ -70,24 +72,35 @@ def hpredict(request):
     else:
        predh='Alas ! You Are Not Safe '
     return render(request, 'App/heart.html', {'predh':predh})
-def upload1(request):#Pneumonia
+def upload1(request):#Covid
     p1 = request.FILES['image'];
     fs1=FileSystemStorage()
-    filePathname1=fs1.save(p.name,p);
-    filePathname1=fs1.url(filePathname)
-    context={'filePathname1':filePathname1}
-    return render(request, 'App/pneout.html',context)
+    filePathname1=fs1.save(p1.name,p1);
+    filePathname1=fs1.url(filePathname1)
+    testimage='.'+filePathname1
+    img=image.load_img(testimage,target_size=(img_height1,img_width1))
+    x=image.img_to_array(img)
+    x=np.array(img)
+    x=x/255;
+    x=x.reshape(1,img_height1,img_width1,3)
+    ans=cmodel.predict(x)
+    if(ans[0][0]>ans[0][1]):
+       ans='Stay Home and Take care of Yourself (COVID +ve)'
+    else:
+        ans='Congrats ! You are Safe (COVID -ve)'
+    context={'filepathname1':filePathname1,'pred1':ans}
+    return render(request, 'App/covidout.html',context)
 def upload2(request):#Malaria
     p2 = request.FILES['image'];
     fs2=FileSystemStorage()
     filePathname2=fs2.save(p2.name,p2);
     filePathname2=fs2.url(filePathname2)
     testimage='.'+filePathname2
-    img=image.load_img(testimage,target_size=(img_height,img_width))
+    img=image.load_img(testimage,target_size=(img_height2,img_width2))
     x=image.img_to_array(img)
     #x=np.array(img)
     #x=x/255;
-    x=x.reshape(1,img_height,img_width,3)
+    x=x.reshape(1,img_height1,img_width1,3)
     ans=model.predict(x)
     if(ans[0][0]>ans[0][1]):
         ans='Infected'
