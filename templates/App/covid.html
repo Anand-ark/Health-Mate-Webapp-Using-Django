@@ -1,7 +1,5 @@
 
 {% extends 'base.html' %}
-{% load static %}
-{% static "img" as baseUrl %}
 {% block title %}COVID19{% endblock title %}
 
 {% block content %}
@@ -12,11 +10,9 @@ img {
   margin-right: auto;
 }
 </style>
-<div class="container my-3"><br>
+<div class="container"><br>
     <h1 style="text-align:center"><p style="color:SkyBlue;">COVID-19 Detection From Lung X-Rays</p></h1>
     <img src="media/fi.jpg" alt="medical" class="centre" style="width:20% width="300" height="300";><br>
-    <!--<img src="{% static 'images/mal.jpg' %}" alt="medical" class="centre" style="width:20% width="300" height="300";>
-<!--<div style=" position:relative;top:80%; left:41%;">-->
     <form action="upload1" method="post" enctype="multipart/form-data">{% csrf_token %}
         <span style=" position:relative;top:80%; left:30%;">
         <input type="file" class="btn btn-success" name="image">
