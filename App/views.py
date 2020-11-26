@@ -102,7 +102,7 @@ def upload2(request):#Malaria
     x=image.img_to_array(img)
     #x=np.array(img)
     #x=x/255;
-    x=x.reshape(1,img_height1,img_width1,3)
+    x=x.reshape(1,img_height2,img_width2,3)
     ans=model.predict(x)
     if(ans[0][0]>ans[0][1]):
         ans='Infected'
