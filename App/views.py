@@ -27,8 +27,8 @@ def diabetes(request):
     return render(request, 'App/diabetes.html')
 def heart(request):
     return render(request, 'App/heart.html')
-def skin(request):
-    return render(request, 'App/skin.html')
+#def skin(request):
+ #   return render(request, 'App/skin.html')
 def malariaa(request):
     return render(request, 'App/malariaa.html')
 def covid(request):
