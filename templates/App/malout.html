@@ -1,17 +1,86 @@
 {% extends 'base.html' %}
-
-{% block title %}Result{% endblock title %}
+{% block title %}About{% endblock title %}
 {% block content %}
-
 <style>
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.c
+{
+margin-top:-185px;
+margin-left:65px
 }
+.center
+{
+margin-top:-560px;
+margin-left:90px;
+margin-bottom:50px;
+width:50%
+}
+.btn-primary {
+    color: #212529;
+    background-color: #5555;
+    border-color: #5555
+}
+.btn-warning {
+    color: #212529;
+    background-color: #f44336;
+    border-color: #5555
+}
+    form
+    {
+    margin-top:350px;
+    margin-right:170px;
+    }
+    h1
+    {
+    margin-top:83px;
+    margin-left:35px;
+    }
 </style>
-<div class="container my-3">
-        <img src={{filepathname2}} alt="img" style="width:35%;vertical-align:middle;margin:40px 370px"" >
-         <h1 style="text-align:center; color:DeepSkyBlue;"><b> Result is : {{ pred2 }}</b></h1>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">-->
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="main">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="media/mosq.jpg" alt="">
+                </div>
+
+                <div class="signup-form">
+                    <h1 style="text-align:center; border-bottom-style: solid; border-top-style: solid;font-family:Geometr415 Blk BT; color:DarkSlateGrey;">MALARIA CELL DETECTION </h1>
+                    <form action="upload2" method="post" enctype="multipart/form-data">{% csrf_token %}
+                        <span style=" position:relative;top:150%; left:30%;"><input type="file" class="btn btn-warning" name="image">
+        <!--</span>
+        <span style=" position:relative;top:80%; left:43%;"><br>-->
+               <input type="submit" class="btn btn-primary" value="Upload Image">
+                            <img src={{filepathname2}} alt="img" class="center">
+                            <h2 style="font-family:Geometr415 Blk BT;" class="c"><b>{{pred2}}</b></h2>
+
+
+               </span>
+               </div>
+        <!--<img src={{filePathname}} alt="imagename">
+                    {{filePathname}}-->
+             </form>
+    </div>
+        </div>
+    </div>
+    <!-- JS -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
 {% endblock content %}
