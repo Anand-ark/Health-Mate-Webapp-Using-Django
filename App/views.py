@@ -87,9 +87,9 @@ def upload1(request):#Covid
     x=x.reshape(1,img_height1,img_width1,3)
     ans=cmodel.predict(x)
     if(ans[0][0]>ans[0][1]):
-       ans='Stay Home and Take care of Yourself (COVID +ve)'
+       ans='COVID POSITIVE DETECTED'
     else:
-        ans='Congrats ! You are Safe (COVID -ve)'
+        ans='COVID NEGATIVE DETECTED'
     context={'filepathname1':filePathname1,'pred1':ans}
     return render(request, 'App/covidout.html',context)
 def upload2(request):#Malaria
@@ -105,9 +105,9 @@ def upload2(request):#Malaria
     x=x.reshape(1,img_height2,img_width2,3)
     ans=model.predict(x)
     if(ans[0][0]>ans[0][1]):
-        ans='Infected'
+        ans='Above Cell is Infected'
     else:
-        ans='Uninfected'
+        ans='Above Cell is Not Infected'
     #ans='Infected'
     context={'filepathname2':filePathname2,'pred2':ans}
     return render(request, 'App/malout.html',context)
