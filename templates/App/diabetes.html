@@ -1,30 +1,83 @@
 {% extends 'base.html' %}
-
-{% block title %}Diabetes{% endblock title %}
-
+{% block title %}About{% endblock title %}
 {% block content %}
-<style>
-    p{
-    margin-top:10px;
-</style>
-<!--{% load static %}
-<div class="container-fluid px-0">
-    <h1>Malaria</h1>
-</div>-->
-<br><h1 style="text-align:center"><p style="color:FloralWhite;">Diabetes Prediction</p></h1>
-<form action="predict" align="center">
-    <p></p><input type="text" name="Pregnancies" placeholder="Pregnancies" required="required" style="width:250px;">
-    <p></p><input type="text" name="Glucose" placeholder="Glucose Concen." required="required" style="width:250px;">
-    <p></p><input type="text" name="BloodPressure" placeholder="Blood Pressure (in mm Hg)" required="required" style="width:250px;">
-    <p></p><input type="text" name="SkinThickness" placeholder="SkinThickness(in mm)" required="required"style="width:250px;">
-    <p></p><input type="text" name="Insulin" placeholder="Insulin Level" required="required" style="width:250px;">
-    <p></p><input type="text" name="BMI" placeholder="BMI" required="required" style="width:250px;">
-    <p></p><input type="text" name="DiabetesPedigreeFunction" placeholder="DiabetesPedigreeFunction" required="required" style="width:250px;">
-    <p></p><input type="text" name="Age" placeholder="Age" required="required" style="width:250px;">
-    <p></p><button type="submit" class="btn btn-primary" style="margin-top: 0.5%;">Predict</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
 
-            <h1 style="text-align:center; color:GreenYellow;"><p>{{ pred }}</p></h1>
+    <!-- Font Icon -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="main">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="media/85.jpg" alt="">
+                </div>
+                <div class="signup-form">
+                    <form action="predict" class="register-form" id="register-form">
+                        {% csrf_token %}
+                        <h1 style="text-align:center; border-bottom-style: solid; border-top-style: solid;font-family:Geometr415 Blk BT; color:MidnightBlue;"> DIABETES PREDICTION </h1><br>
+                        <h1 style= "text-align:center;  font-family:Geometr415 Blk BT; color:MediumSeaGreen;">{{ pred }}</h1>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Pregnancies :</label>
+                                <input type="text" name="Pregnancies" id="name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="father_name">Glucose Concentration :</label>
+                                <input type="text" name="Glucose" id="father_name" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Blood Pressure (in mm Hg) :</label>
+                            <input type="text" name="BloodPressure" id="address" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">SkinThickness (in mm) :</label>
+                            <input type="text" name="SkinThickness" id="address" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Insulin Level :</label>
+                            <input type="text" name="Insulin" id="address" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">BMI:</label>
+                            <input type="text" name="BMI" id="address" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">DiabetesPedigreeFunction :</label>
+                            <input type="text" name="DiabetesPedigreeFunction" id="address" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Age :</label>
+                            <input type="text" name="Age" id="address" required/>
+                        </div>
+                        <div class="form-submit">
+                            <input type="submit" value="Reset All" class="submit" name="reset" id="reset" />
+                            <input type="submit" value="Predict" class="submit" name="submit" id="submit" />
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    {% endblock content %}
+    <!-- JS -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+{% endblock content %}
