@@ -1,79 +1,171 @@
 {% extends 'base.html' %}
-
-{% block title %}Heart{% endblock title %}
-
+{% block title %}About{% endblock title %}
 {% block content %}
-<!--{% load static %}
-<div class="container-fluid px-0">
-    <h1>Malaria</h1>
-</div>-->
 <style>
-    p{
-    margin-top:10px;
-    }
-        select {
-        width: 250px;
-        height:37px;
-        margin: 0px;
-    }
+img
+{
+margin-top:100px;
+}
 </style>
-<!--<h1 style="text-align: center; color: rgb(85, 85, 85);margin-top: 3%;margin-bottom: 3%"><b>Heart Disease Prediction</b></h1>-->
-<br><h1 style="text-align:center"><p style="color:OrangeRed;">Heart Disease Prediction</p></h1>
-<form action="hpredict" align="center">
-    <p><input type="text" name="age" placeholder="Age" required="required" style="width:250px;"></p>
-    <select class="form-input align-center" name="sex">
-        <option value="" style="width:250px;">Sex</option>
-                    <option value=1>Male</option>
-                    <option value=0>Female</option>
-    </select>
-    <p></p>
-    <select class="form-input align-center" name="cp">
-        <option value="" style="width:250px;">Chest Pain Category</option>
-                    <option value=0>Typical Angina</option>
-                    <option value=1>Atypical Angina</option>
-                    <option value=2>Non-Anginal Pain</option>
-                    <option value=3>Asymptomatic</option>
-    </select>
-    <p><input type="text" name="trestbps" placeholder="Resting Blood Pressure" required="required" style="width:250px;"></p>
-    <p><input type="text" name="chol" placeholder="Serum Cholestoral" required="required" style="width:250px;"></p>
-    <select class="form-input align-center" name="fbs">
-        <option value="" style="width:250px;">Fast Blood Sugar</option>
-                    <option value=0>Greater than 120 mg/dl</option>
-                    <option value=1>Lesser than 120 mg/dl</option>
-    </select>
-    <p></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
 
-    <select class="form-input align-center" name="restecg">
-        <option value="" style="width:250px;">Rest ECG</option>
-                    <option value=0>Normal</option>
-                    <option value=1>Having ST-T</option>
-            <option value=2>Hypertrophy</option>
-    </select>
-    <p><input type="text" name="thalach" placeholder="Max Heart Rate" required="required" style="width:250px;"></p>
-    <select class="form-input align-center" name="exang">
-        <option value="" style="width:250px;">Induced Angina</option>
-                    <option value=1>Yes</option>
-                    <option value=0>No</option>
-    </select>
-    <p><input type="text" name="oldpeak" placeholder="Oldpeak" required="required" style="width:250px;"></p>
-    <select class="form-input align-center" name="slope">
-        <option value="" style="width:250px;">Slope of Peak Exercise</option>
-                    <option value=1>Upsloping</option>
-                    <option value=2>Flat</option>
-                    <option value=3>Downsloping</option>
-    </select>
-    <p><input type="text" name="ca" placeholder="Major Vessels" required="required" style="width:250px;"></p>
-      <p></p>      <select class="form-input align-center" name="thal">
-        <option value="" style="width:250px;">Thalassemia</option>
-                    <option value=3>Normal</option>
-                    <option value=2>Fixed defect</option>
-                    <option value=3>Reversable defect</option>
-    </select>
-<p> <button type="submit" class="btn btn-danger" style="margin-top: 0.5%;">Predict</button></p>
+    <!-- Font Icon -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'fonts/material-icon/css/material-design-iconic-font.min.css' %}">
 
-            </form>
-            <br>
+    <!-- Main css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
 
-<h1 style="text-align:center; color: FloralWhite;"><b><p> {{ predh }}</p></b></h1>
+    <div class="main">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-img">
+                    <img src="media/heart3.jpg" alt="">
+                    <h1 style= "text-align:center;  font-family:Geometr415 Blk BT; color:MediumSeaGreen;">{{ predh }}</h1>
+                </div>
+                <div class="signup-form">
+                    <form action="hpredict" class="register-form" id="register-form">
+                        {% csrf_token %}
+                        <h1 style="text-align:center; border-bottom-style: solid;font-family:Geometr415 Blk BT; color:Red;">HEART DISEASE </h1><br>
+                        <h1 style= "text-align:center;  font-family:Geometr415 Blk BT; color:MediumSeaGreen;">{{ pred }}</h1>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Age :</label>
+                                <input type="text" name="age" id="name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">Select Sex :</label>
+                                <div class="form-select">
+                                    <select name="sex" id="state">
+                                        <option value=""></option>
+                                        <option value=1>Male</option>
+                                        <option value=0>Female</option>
+                                    </select>
+                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="state">Select Chest Pain Category :</label>
+                                <div class="form-select">
+                                    <select name="cp" id="state">
+                                        <option value=""></option>
+                                        <option value=0>Typical Angina</option>
+                                        <option value=1>Atypical Angina</option>
+                                        <option value=2>Non-Anginal Pain</option>
+                                        <option value=3>Asymptomatic</option>
+                                    </select>
+                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                </div>
+                            </div>
+                        <div class="form-group">
+                            <label for="address">Resting Blood Pressure (in mm Hg) :</label>
+                            <input type="text" name="trestbps" id="address" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Serum Cholestoral :</label>
+                            <input type="text" name="chol" id="address" required/>
+                        </div>
+                        <div class="form-group">
+                                <label for="state">Select Fast Blood Sugar Category :</label>
+                                <div class="form-select">
+                                    <select name="fbs" id="state">
+                                        <option value=""></option>
+                                        <option value=0>Greater Than 120mg/dl</option>
+                                        <option value=1>Lesser Than 120mg/dl</option>
+                                    </select>
+                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                </div>
+                            </div>
+                       <div class="form-group">
+                                <label for="state">Select Rest ECG Category :</label>
+                                <div class="form-select">
+                                    <select name="restecg" id="state">
+                                        <option value=""></option>
+                                        <option value=0>Normal</option>
+                                        <option value=1>Having ST-T</option>
+                                        <option value=2>Hypertrophy</option>
+                                    </select>
+                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                </div>
+                            </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Max Heart Rate :</label>
+                                <input type="text" name="thalach" id="name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">Select Induced Angina :</label>
+                                <div class="form-select">
+                                    <select name="exang" id="state">
+                                        <option value=""></option>
+                                        <option value=1>Yes</option>
+                                        <option value=0>No</option>
+                                    </select>
+                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                </div>
+                                <!--<input type="text" name="Glucose" id="father_name" required/>-->
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Old Peak:</label>
+                                <input type="text" name="oldpeak" id="name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="father_name">Select Slope of Peak Exercise :</label>
+                                <div class="form-select">
+                                    <select name="slope" id="state">
+                                        <option value=""></option>
+                                        <option value=1>Upsloping</option>
+                                        <option value=2>Flat</option>
+                                        <option value=3>Downsloping</option>
+                                    </select>
+                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Major Vessels :</label>
+                                <input type="text" name="ca" id="name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">Select Thalassemia :</label>
+                                <div class="form-select">
+                                    <select name="thal" id="state">
+                                        <option value=""></option>
+                                        <option value=1>Normal</option>
+                                        <option value=2>Fixed Defect</option>
+                                        <option value=3>Reversal Defect</option>
+                                    </select>
+                                    <span class="select-icon"><i class="zmdi zmdi-chevron-down"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-submit">
+                            <input type="submit" value="Reset All" class="submit" name="reset" id="reset" />
+                            <input type="submit" value="Predict" class="submit" name="submit" id="submit" />
+                        </div>
+                    </form>
 
-    {% endblock content %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+{% endblock content %}
