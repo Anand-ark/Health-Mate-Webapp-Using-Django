@@ -18,12 +18,12 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+<n>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <l class="nav-item active">
         <a class="nav-link" style="font-family:Geometr415 Blk BT" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
+      </l>
             <li class="nav-item">
         <li class="nav-item active">
         <a class="nav-link" style="font-family:Geometr415 Blk BT" href="/about">About</a>
@@ -45,7 +45,7 @@
       </li>
       <li class="nav-item">
         <li class="nav-item active">
-        <a class="nav-link" style="font-family:Geometr415 Blk BT" href="/covid">COVID19 Detection</a>
+        <a class="nav-link" style="font-family:Geometr415 Blk BT" href="/covid">COVID19</a>
 
       </li>
 
@@ -55,6 +55,7 @@
       </li>
     </ul>
   </div>
+</n>
 </nav>
 {% block content %} {% endblock content %}
     <!-- Optional JavaScript; choose one of the two! -->
@@ -75,6 +76,49 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 106% 100%;
+}
+n{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 60px 0px 360px;
+  border-radius: 100px;
+  letter-spacing: 0.8px;
+}
+a.navbar-brand
+{
+  font-size: 30px;
+}
+nav ul li a.active,
+nav ul li a:hover{
+  color: #111;
+  background:  rgb(233, 14, 14);
+}
+nav ul l a.active,
+nav ul l a{
+  color: #fff;
+  background:  rgb(233, 14, 14);
+}
+nav ul l a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+nav ul li a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 </style>
 
