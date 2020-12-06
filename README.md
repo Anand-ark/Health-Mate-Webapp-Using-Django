@@ -1,5 +1,5 @@
 # Health-Mate-App
-![Python 3.6](https://img.shields.io/badge/Python-3.6-brightgreen.svg) ![scikit-learnn](https://img.shields.io/badge/Library-Scikit_Learn-orange.svg) ![Pandas](https://img.shields.io/badge/Library-Pandas-blueviolet.svg) ![seaborn](https://img.shields.io/badge/Library-Seaborn-ff69b4.svg) ![Webapp -Flask](https://img.shields.io/badge/Webapp-Django-green.svg) ![Deployment-GoogleCloudPlatform](https://img.shields.io/badge/Deployment-Heroku-violet.svg)
+![Python 3.6](https://img.shields.io/badge/Python-3.6-brightgreen.svg) ![Keras](https://img.shields.io/badge/Library-Scikit_Learn-orange.svg) ![Matplotlib](https://img.shields.io/badge/Library-Seaborn-ff69b4.svg) ![Webapp -Flask](https://img.shields.io/badge/Webapp-Django-brightgreen.svg) ![Deployment-GoogleCloudPlatform](https://img.shields.io/badge/Deployment-Heroku-violet.svg)
 
 
 
