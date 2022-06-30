@@ -21,8 +21,8 @@ def index(request):
 def about(request):
     #return HttpResponse('<h1>Welcome </h1>')
     return render(request, 'App/about.html')
-def contact(request):
-    return render(request, 'App/contact.html')
+#def contact(request):
+ #   return render(request, 'App/contact.html')
 def diabetes(request):
     return render(request, 'App/diabetes.html')
 def heart(request):
